@@ -8,7 +8,7 @@ def get_emails_on_list():
     credentials = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
 
     client = gspread.authorize(credentials)
-    spreadsheet = client.open_by_url('https://docs.google.com/spreadsheets/d/1U94k_4fzX6S7WxcxSRIkHYA0ZAZqoPNcq8E0KeK-DeM/edit?usp=sharing')
+    spreadsheet = client.open_by_url('MY_REGISTRATION_GSHEET_URL')
     worksheetName = "sheet1"
     worksheet = spreadsheet.worksheet(worksheetName)
     df = pd.DataFrame(worksheet.get_all_records())
@@ -27,7 +27,7 @@ def remove_these_from_list():
     credentials = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
 
     client = gspread.authorize(credentials)
-    spreadsheet = client.open_by_url('https://docs.google.com/spreadsheets/d/1QM05Ah7V7WrBHNN8BAf9LUPvT-q37drXTFWXyojZE0o/edit?usp=sharing')
+    spreadsheet = client.open_by_url('MY_UNSUBSCRIBE_GSHEET_URL')
     worksheetName = "sheet1"
     worksheet = spreadsheet.worksheet(worksheetName)
     df = pd.DataFrame(worksheet.get_all_records())
